@@ -22,7 +22,8 @@ class Pokemon
   def self.find(id, db)
     sql = "SELECT * FROM pokemon WHERE id = ? LIMIT 1"
     db_pokemon = db.execute(sql,id)
-    new_pokemon = Pokemon.new(id:db_pokemon[0])
+    new_pokemon = Pokemon.new(id:db_pokemon[0], name:db_pokemon[1], type:db_pokemon[2], db:db)
+    new_pokemon.db_pokemon[0]
   end 
   
 end
